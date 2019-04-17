@@ -94,4 +94,65 @@ function findStr(str, long) {
     var splitedArray = long.split(str);
 return splitedArray.length - 1;    
 }
-console.log(findString('hello, ' + 'goodbye', 8));
+
+//question 10
+// selfDividingNu,bers
+
+function selfDividingNumbers(left, right) {
+    var solution = [];
+    for(var i=left; i<=right; i++) {
+        if(isSelfDividing(i)) {
+            solution.push(i)
+        }
+    }
+    return solution;
+}
+
+function isSelfDividing(num) {
+    var digits = num.toString().split('');
+    for(var i=0; i<digits[i].length; i++) {
+        if(num % digits[i] !== 0) {
+            return false
+        }
+    }
+    return true;
+}
+
+// question 11
+// moveZeroes
+
+function moveZeros(nums) {
+    var counter = 0;
+    var solution = [];
+for(var i=0; i<nums.length; i++) {
+    if(nums[i] === 0) {
+        counter++;
+    } else {
+        solution.push(nums[i]);
+    }
+}
+
+//add back xeroes on end
+
+for(var j=counter; j>0; j--) {
+    solution.push(0);
+}
+return solution
+}
+//console.log(moveZeros([1,0,21,4,0,0,4]));
+
+//question 12
+// average()
+
+function average(nums) {
+    if(nums.length === 0) {
+            return 0;
+    }
+    var sum = 0;
+    for(var i=0; i<nums.length; i++) {
+        sum += nums[i];
+    }
+    return sum/nums.length
+}
+
+// console.log(average([]));
